@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lauzangeles-barbearia.vercel.app/sitemap-index.xml

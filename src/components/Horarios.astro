@@ -1,0 +1,14 @@
+---
+import { site } from '../data/site';
+const ordem = [1, 2, 3, 4, 5, 6, 0];
+const fmt = (h: number) => `${h}h`;
+---
+<div class="horas" data-horas role="list" aria-label="Horário de funcionamento">
+  {ordem.map((i) => (
+    <div role="listitem" data-dia={i}>
+      <span>{site.horarios[i].dia}</span>
+      <span>{fmt(site.horarios[i].abre)} às {fmt(site.horarios[i].fecha)}</span>
+    </div>
+  ))}
+</div>
+<script type="application/json" id="horarios-json" set:html={JSON.stringify(site.horarios)} />

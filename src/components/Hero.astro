@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.webp';
+import { site, whatsappUrl } from '../data/site';
+import IconWhatsApp from './IconWhatsApp.astro';
+---
+<section class="hero" aria-labelledby="titulo">
+  <div class="hero__grid">
+    <div class="hero__arte" aria-hidden="true">
+      <div class="chev">
+        <svg viewBox="0 0 1000 420" preserveAspectRatio="xMidYMax slice">
+          <polyline class="c1" points="-80,400 500,40 1080,400" stroke-width="52" />
+          <polyline class="c2" points="-80,520 500,160 1080,520" stroke-width="52" />
+          <polyline class="c3" points="-80,640 500,280 1080,640" stroke-width="52" />
+        </svg>
+      </div>
+      <Image class="roundel" src={logo} alt="" width={380} height={380} widths={[190, 380, 570]} sizes="(min-width: 900px) 380px, 190px" loading="eager" fetchpriority="high" />
+    </div>
+    <div class="hero__texto wrap">
+      <h1 id="titulo"><span class="l">Barbearia no Tremembé,</span> <span class="l">desde 2015.</span></h1>
+      <p class="hero__sub">Corte, barba e bigode na Zona Norte de São Paulo. Madeira, couro e neon, com a navalha de sempre.</p>
+      <div class="hero__acoes">
+        <a class="btn" href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer"><IconWhatsApp />Agendar no WhatsApp</a>
+        <a class="btn btn--claro" href={site.mapsUrl} data-track="click_maps" target="_blank" rel="noopener noreferrer">Como chegar</a>
+      </div>
+      <p class="hero__status" data-status>{site.horarioResumo}</p>
+    </div>
+  </div>
+</section>

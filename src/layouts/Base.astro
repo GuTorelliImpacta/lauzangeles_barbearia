@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.webp';
+import { site, nav, whatsappUrl, telUrl } from '../data/site';
+import Rodape from '../components/Rodape.astro';
+import IconWhatsApp from '../components/IconWhatsApp.astro';
+
+interface Props { titulo: string; descricao?: string; noindex?: boolean; tipo?: 'website' | 'article'; }
+const { titulo, descricao = site.descricao, noindex = false, tipo = 'website' } = Astro.props;
+const atual = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = new URL(atual === '/' ? '/' : atual, Astro.site).href;
+const og = new URL('/og.jpg', Astro.site).href;
+const dias = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const fmt = (h: number) => `${String(h).padStart(2, '0')}:00`; // taste-skill-ignore: horário
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'HairSalon',
+      '@id': new URL('/#barbearia', Astro.site).href,
+      name: site.nome,
+      url: new URL('/', Astro.site).href,
+      image: og,
+      logo: new URL('/icon-512.png', Astro.site).href,
+      telephone: site.telefone.e164,
+      description: site.descricao,
+      foundingDate: String(site.desde),
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: site.endereco.rua,
+        addressLocality: `${site.endereco.bairro}, ${site.endereco.cidade}`,
+        addressRegion: site.endereco.uf,
+        postalCode: site.endereco.cep,
+        addressCountry: 'BR',
+      },
+      openingHoursSpecification: site.horarios.map((h, i) => ({
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: dias[i],
+        opens: fmt(h.abre),
+        closes: fmt(h.fecha),
+      })),
+      sameAs: [site.instagram.url],
+    },
+    { '@type': 'WebSite', '@id': new URL('/#site', Astro.site).href, name: site.nome, url: new URL('/', Astro.site).href, inLanguage: 'pt-BR' },
+  ],
+};
+---
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titulo}</title>
+    <meta name="description" content={descricao} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#171216" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta property="og:type" content={tipo} />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.nome} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descricao} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topo">
+      <div class="wrap topo__in">
+        <a class="marca" href="/" aria-label={`${site.nome}, página inicial`}>
+          <Image src={logo} alt="" width={44} height={44} widths={[44, 88]} sizes="44px" loading="eager" />
+          <span>{site.nomeCurto}</span>
+        </a>
+        <nav class="nav" aria-label="Principal">
+          {nav.map((n) => <a href={n.href} aria-current={atual === n.href ? 'page' : undefined}>{n.rotulo}</a>)}
+        </nav>
+        <a class="btn" href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer">Agendar</a>
+        <details class="menu">
+          <summary aria-label="Abrir menu">Menu</summary>
+          <nav class="menu__lista" aria-label="Menu">
+            {nav.map((n) => <a href={n.href} aria-current={atual === n.href ? 'page' : undefined}>{n.rotulo}</a>)}
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="conteudo"><slot /></main>
+    <Rodape />
+    <div class="barra" role="region" aria-label="Contato rápido">
+      <a class="btn" href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer"><IconWhatsApp />WhatsApp</a>
+      <a class="btn btn--claro" href={telUrl} data-track="click_call">Ligar</a>
+    </div>
+    <script>
+      import '../scripts/main';
+    </script>
+  </body>
+</html>

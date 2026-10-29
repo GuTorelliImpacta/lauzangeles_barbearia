@@ -1,0 +1,11 @@
+---
+import { site } from '../data/site';
+---
+<section class="fatos" aria-label="A barbearia em números">
+  <div class="wrap fatos__lista">
+    <div class="fato" data-reveal><strong>{site.desde}</strong><span>Desde esse ano, na Zona Norte de São Paulo</span></div>
+    <div class="fato" data-reveal style="--i:1"><strong>{site.google.nota}</strong><span>No Google, com {site.google.avaliacoes} avaliações ({site.google.referencia}). <a href={site.mapsUrl} target="_blank" rel="noopener noreferrer">Ver na ficha</a></span></div>
+    <div class="fato" data-reveal style="--i:2"><strong>10h–20h</strong><span>De segunda a sábado</span></div>
+    <div class="fato" data-reveal style="--i:3"><strong>10h–14h</strong><span>Aos domingos</span></div>
+  </div>
+</section>

@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import neon from '../assets/neon-mustang.jpg';
+import espelhos from '../assets/espelhos-bandeira.jpg';
+import Chevron from './Chevron.astro';
+---
+<div class="espaco" data-espaco>
+  <div class="espaco__texto" data-reveal>
+    <h2 id="espaco-titulo">Um salão com identidade</h2>
+    <p class="lede" style="margin-top:24px">Neon no teto preto, madeira na parede, couro caramelo nas cadeiras e um carro vermelho no meio do salão.</p>
+    <ul class="itens">
+      <li><Chevron />Espelhos com lâmpadas e a bandeira de São Paulo na parede</li>
+      <li><Chevron />Poltronas de couro para a espera</li>
+      <li><Chevron />Atendimento de segunda a domingo</li>
+    </ul>
+  </div>
+  <div data-reveal style="--i:1">
+    <div class="moldura" role="group" aria-label="Fotos do salão. Toque para ver a próxima." tabindex="0">
+      <Image src={neon} alt="Salão da Barbearia Lauzangeles com tubos de neon vermelho e branco no teto, parede de madeira, cadeira de couro e carro vermelho ao fundo" widths={[480, 800, 1000]} sizes="(min-width: 900px) 520px, 100vw" />
+      <Image src={espelhos} alt="Estação de trabalho com espelhos de lâmpadas, bandeira do estado de São Paulo e cliente na cadeira coberto com capa" widths={[480, 800]} sizes="(min-width: 900px) 520px, 100vw" loading="lazy" />
+    </div>
+    <p class="legenda" aria-live="polite" data-legenda>O salão: neon, madeira, couro e o carro vermelho.</p>
+  </div>
+</div>

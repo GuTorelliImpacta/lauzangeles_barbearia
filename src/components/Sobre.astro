@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+import atendimento from '../assets/atendimento.jpg';
+import { site } from '../data/site';
+const { botao = false, h1 = false } = Astro.props;
+const H = h1 ? 'h1' : 'h2';
+---
+<div class="sobre">
+  <div data-reveal>
+    <H id="sobre-titulo">Desde {site.desde} no bairro</H>
+    <p class="lede" style="margin-top:24px">Tradição de barbearia clássica, com navalha e atenção ao detalhe, num ambiente que não se parece com nenhum outro da região.</p>
+    <p class="suave" style="margin-top:18px">Aqui o corte, a barba e o bigode são feitos na conversa com o cliente. O resultado aparece no espelho e nas {site.google.avaliacoes} avaliações que a barbearia tem no Google.</p>
+    {botao && <div style="margin-top:32px"><a class="btn btn--escuro" href="/sobre">Conheça a barbearia</a></div>}
+  </div>
+  <figure class="sobre__foto" data-reveal style="--i:1; margin:0">
+    <Image src={atendimento} alt="Barbeiro cortando o cabelo de um cliente na cadeira de couro do salão, com o mural de locomotiva ao fundo" widths={[480, 800, 1153]} sizes="(min-width: 900px) 520px, 100vw" />
+  </figure>
+</div>

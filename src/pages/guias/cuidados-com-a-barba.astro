@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { whatsappUrl } from '../../data/site';
+import Fecha from '../../components/Fecha.astro';
+import FotoMotivo from '../../components/FotoMotivo.astro';
+import espelhos from '../../assets/espelhos-bandeira.jpg';
+---
+<Base tipo="article" titulo="Cuidados com a barba no dia a dia | Lauzangeles" descricao="Dicas simples para manter a barba bonita entre uma visita e outra à barbearia: limpeza, hidratação, pentear e contorno.">
+  <header class="pagina-topo wrap"><h1>Cuidados com a barba</h1><p class="lede suave">Hábitos simples para a barba durar bonita entre uma visita e outra.</p></header>
+  <div class="wrap artigo" style="padding-bottom: var(--gap-secao)"><article class="texto">
+    <p>Barba bem cuidada começa em casa. Estas orientações são gerais: pele e fio variam de pessoa para pessoa, e o barbeiro pode indicar o que serve para você.</p>
+    <h2>Lave com produto adequado</h2>
+    <p>Use um sabonete ou xampu próprio para barba, sem esfregar com força. Enxágue bem para não deixar resíduos na pele.</p>
+    <h2>Hidrate pele e fio</h2>
+    <p>Depois do banho, com a barba ainda levemente úmida, aplique um óleo ou bálsamo de barba. Isso ajuda a controlar o frizz e a manter a pele por baixo confortável.</p>
+    <h2>Penteie para dar forma</h2>
+    <p>Escove ou penteie todos os dias, no sentido do crescimento. O hábito alinha os fios e ajuda a espalhar o produto.</p>
+    <h2>Mantenha o contorno</h2>
+    <p>O contorno do pescoço e da bochecha é o que mais mostra quando a barba perdeu a forma. Marcar na navalha a cada visita mantém o desenho.</p>
+    <p style="margin-top:32px"><a class="btn" href={whatsappUrl('Olá! Quero agendar barba na Barbearia Lauzangeles.')} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer">Agendar minha barba</a></p>
+  </article>
+    <FotoMotivo src={espelhos} alt="Estação de trabalho com espelhos de lâmpadas e a bandeira de São Paulo" />
+  </div>
+  <Fecha />
+</Base>

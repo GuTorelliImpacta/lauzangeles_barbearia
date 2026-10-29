@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import Sobre from '../components/Sobre.astro';
+import Espaco from '../components/Espaco.astro';
+import Fecha from '../components/Fecha.astro';
+---
+<Base titulo="Sobre a Barbearia Lauzangeles | Tremembé, SP" descricao="Conheça a Barbearia Lauzangeles: desde 2015 no Tremembé, Zona Norte de São Paulo, com ambiente de madeira, couro e neon.">
+  <header class="pagina-topo wrap"><h1>Sobre a barbearia</h1></header>
+  <section class="secao secao--creme on-light wrap" aria-labelledby="sobre-titulo" style="padding-top:clamp(64px,9vw,128px)">
+    <Sobre />
+  </section>
+  <section class="secao secao--cartao wrap" aria-labelledby="espaco-titulo"><Espaco /></section>
+  <Fecha />
+</Base>

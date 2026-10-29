@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+<Base titulo="Política de privacidade | Barbearia Lauzangeles" descricao="Como o site da Barbearia Lauzangeles trata dados pessoais: não coletamos dados e não usamos cookies.">
+  <header class="pagina-topo wrap"><h1>Privacidade</h1></header>
+  <section class="wrap texto" style="padding-bottom: var(--gap-secao)">
+    <p>Este site é informativo. Ele não tem formulários, não pede cadastro e não usa cookies de rastreamento ou publicidade.</p>
+    <h2>O que coletamos</h2>
+    <p>Nada de forma ativa. O provedor de hospedagem pode registrar dados técnicos de acesso (como endereço IP e navegador) por segurança e estabilidade, por prazo limitado.</p>
+    <h2>Links para outros serviços</h2>
+    <p>Os botões de WhatsApp, Instagram e Google Maps levam a serviços de terceiros, que têm políticas próprias. Ao falar pelo WhatsApp, você compartilha seu número e sua mensagem com a barbearia, para marcar o horário.</p>
+    <h2>Seus direitos (LGPD)</h2>
+    <p>Pela Lei Geral de Proteção de Dados, você pode pedir informação, correção ou exclusão dos dados que a barbearia tenha recebido por WhatsApp. Fale com a gente pelo número {site.telefone.exibicao}.</p>
+    <h2>Avaliações do Google</h2>
+    <p>A nota {site.google.nota} e as {site.google.avaliacoes} avaliações exibidas vêm da ficha da barbearia no Google e foram consultadas em {site.google.referencia}.</p>
+  </section>
+</Base>

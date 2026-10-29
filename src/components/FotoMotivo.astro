@@ -1,0 +1,5 @@
+---
+import { Image } from 'astro:assets';
+const { src, alt } = Astro.props;
+---
+<div class="pagina-duas__foto" data-reveal style="--i:1"><Image src={src} alt={alt} widths={[400, 700]} sizes="(min-width: 900px) 460px, 100vw" /></div>
