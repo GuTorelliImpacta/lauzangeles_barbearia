@@ -188,7 +188,7 @@ h2 { font-size: clamp(2.6rem, 6vw, 5.4rem); }
 /* sobre */
 .sobre { display: grid; gap: 48px; }
 .sobre__foto { clip-path: var(--motif); width: min(100%, 520px); }
-.sobre__foto img { width: 100%; aspect-ratio: 1 / 1.05; object-fit: cover; }
+.sobre__foto img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 40%; }
 .sobre p + p { margin-top: 18px; }
 @media (min-width: 900px) { .sobre { grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 8vw; } .sobre__foto { justify-self: end; } }
 

@@ -134,7 +134,7 @@ Originais já copiados para `assets/originais/` (não publicar este diretório; 
 | `logo-lauzangeles.jpg` | Logo roundel | 816×802 | Dono | Header, hero, favicon, OG. Fundo preto; recortar círculo, gerar versões; pedir vetor/PNG transparente |
 | `interior-neon-mustang.jpg` | Neon, carro vermelho, cadeira, lustre | 1206×1553 | Provável Maps | Seção "Ambiente" (≥800 px ok); **não hero** |
 | `interior-espelhos-bandeira.jpg` | Espelhos com lâmpadas, bandeira SP, cliente de costas com toalha | 835×1539 | Provável story | Sobre ou Ambiente (largura 835, usar ≤ 800 px) |
-| `atendimento-barbeiro-cliente.jpg` | Barbeiro cortando cabelo de jovem | 1153×1606 | Provável Maps | **Reter** até autorização de imagem (menor aparente e barbeiro identificável); alternativa: recorte sem o rosto do cliente |
+| `atendimento-barbeiro-cliente.jpg` | Barbeiro cortando cabelo de jovem | 1153×1606 | Dono | Uso autorizado pelo dono do projeto (cliente). Usada em Sobre. |
 | `print-maps-horarios-endereco.jpg` | Print com horários/NAP | 1200×2000 | Dono | **Só referência, não publicar** |
 - Regras: foto do cliente primeiro; miniatura de Maps/Instagram não serve para hero nem destaque; hero ≥ 1600 px (nenhuma foto atual atinge, portanto hero é gráfico); conteúdo ≥ 800 px; nada repetido em seções; imagem sem relação com o negócio não entra.
 - **Fotos necessárias (pedir ao dono):** fachada externa, close de navalha/barba, resultado de cortes (com autorização), equipe, interior horizontal ≥ 1600 px, logo vetorial.

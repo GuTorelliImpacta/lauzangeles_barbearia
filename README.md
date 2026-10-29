@@ -36,7 +36,7 @@ Nenhum rastreador é carregado. Os botões têm `data-track` (`click_whatsapp`, 
 
 ## Pendências com o dono (`[CONFIRMAR]`)
 
-Serviços e preços, número do WhatsApp (assumido igual ao telefone), domínio, autorização de imagem da foto de atendimento, formas de pagamento, estacionamento, atendimento infantil, equipe. Fotos necessárias: fachada, close de navalha/barba, resultados de cortes (com autorização), equipe, interior horizontal ≥ 1600 px, logo vetorial.
+Serviços e preços, número do WhatsApp (assumido igual ao telefone), domínio, formas de pagamento, estacionamento, atendimento infantil, equipe. Fotos necessárias: fachada, close de navalha/barba, resultados de cortes (com autorização), equipe, interior horizontal ≥ 1600 px, logo vetorial.
 
 ## Dependências e segurança
 

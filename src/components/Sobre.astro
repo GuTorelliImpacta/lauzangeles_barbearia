@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import detalhe from '../assets/detalhe-atendimento.jpg';
+import atendimento from '../assets/atendimento.jpg';
 import { site } from '../data/site';
 const { botao = false, h1 = false } = Astro.props;
 const H = h1 ? 'h1' : 'h2';
@@ -13,6 +13,6 @@ const H = h1 ? 'h1' : 'h2';
     {botao && <div style="margin-top:32px"><a class="btn btn--escuro" href="/sobre">Conheça a barbearia</a></div>}
   </div>
   <figure class="sobre__foto" data-reveal style="--i:1; margin:0">
-    <Image src={detalhe} alt="Detalhe do atendimento: barbeiro com máquina em punho cortando o cabelo de um cliente na cadeira" widths={[400, 613]} sizes="(min-width: 900px) 520px, 100vw" />
+    <Image src={atendimento} alt="Barbeiro cortando o cabelo de um cliente na cadeira de couro do salão, com o mural de locomotiva ao fundo" widths={[480, 800, 1153]} sizes="(min-width: 900px) 520px, 100vw" />
   </figure>
 </div>

@@ -25,6 +25,9 @@ await sharp(logo).resize(512).png().toFile('public/icon-512.png');
 await sharp(IN + 'interior-neon-mustang.jpg').resize({ width: 1200 }).jpeg({ quality: 86, mozjpeg: true }).toFile(OUT + 'neon-mustang.jpg');
 await sharp(IN + 'interior-espelhos-bandeira.jpg').jpeg({ quality: 88, mozjpeg: true }).toFile(OUT + 'espelhos-bandeira.jpg');
 
+// Foto de atendimento completa (uso autorizado pelo dono do projeto)
+await sharp(IN + 'atendimento-barbeiro-cliente.jpg').jpeg({ quality: 88, mozjpeg: true }).toFile(OUT + 'atendimento.jpg');
+
 // Detalhe do atendimento: recorte sem rostos (mãos, máquina, capa)
 await sharp(IN + 'atendimento-barbeiro-cliente.jpg')
   .extract({ left: 540, top: 500, width: 613, height: 560 })
