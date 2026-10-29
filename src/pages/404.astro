@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import { whatsappUrl } from '../data/site';
+---
+<Base titulo="Página não encontrada | Barbearia Lauzangeles" noindex>
+  <section class="pagina-topo wrap" style="min-height:60svh">
+    <h1>Página não encontrada</h1>
+    <p class="lede suave">O endereço que você abriu não existe. Volte ao início ou chame a barbearia.</p>
+    <div class="acoes"><a class="btn" href="/">Voltar ao início</a><a class="btn btn--claro" href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a></div>
+  </section>
+</Base>

@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import Servicos from '../components/Servicos.astro';
+import Fecha from '../components/Fecha.astro';
+import FotoMotivo from '../components/FotoMotivo.astro';
+import detalhe from '../assets/detalhe-atendimento.jpg';
+import { site } from '../data/site';
+---
+<Base titulo="Corte, barba e bigode no Tremembé | Barbearia Lauzangeles" descricao="Corte, barba e bigode na Barbearia Lauzangeles, no Tremembé, Zona Norte de São Paulo. Agende pelo WhatsApp.">
+  <header class="pagina-topo wrap pagina-duas">
+    <div><h1>Corte, barba e bigode</h1>
+    <p class="lede suave">Serviços feitos na cadeira da Lauzangeles, no Tremembé, com máquina, tesoura e navalha.</p></div>
+    <FotoMotivo src={detalhe} alt="Barbeiro com máquina em punho atendendo um cliente na cadeira" />
+  </header>
+  <section class="wrap" style="padding-bottom: var(--gap-secao)" aria-label="Lista de serviços">
+    <Servicos completo />
+    {site.flags.mostrarPrecos && <p class="suave" style="margin-top:32px">Valores sob consulta.</p>}
+    <p class="suave" style="margin-top:32px;max-width:52ch">Para saber valores e outros serviços, chame a barbearia no WhatsApp. Também ajuda mandar uma foto de referência do corte que você quer.</p>
+  </section>
+  <Fecha />
+</Base>

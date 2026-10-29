@@ -1,0 +1,36 @@
+---
+import { site, nav, telUrl, whatsappUrl } from '../data/site';
+---
+<footer class="rodape">
+  <div class="wrap">
+    <div class="rodape__marca" aria-hidden="true">Lauzangeles</div>
+    <div class="rodape__grid">
+      <div>
+        <h3>Barbearia</h3>
+        <ul>{nav.map((n) => <li><a href={n.href}>{n.rotulo}</a></li>)}<li><a href="/privacidade">Privacidade</a></li></ul>
+      </div>
+      <div>
+        <h3>Guias</h3>
+        <ul><li><a href="/guias/como-pedir-degrade">Como pedir um degradê</a></li><li><a href="/guias/cuidados-com-a-barba">Cuidados com a barba</a></li></ul>
+      </div>
+      <div>
+        <h3>Endereço</h3>
+        <address style="font-style:normal">{site.endereco.rua}<br />{site.endereco.bairro}, {site.endereco.cidade} - {site.endereco.uf}<br />CEP {site.endereco.cep}</address>
+        <a href={site.mapsUrl} data-track="click_maps" target="_blank" rel="noopener noreferrer">Abrir rota no Maps</a>
+      </div>
+      <div>
+        <h3>Fale com a gente</h3>
+        <ul>
+          <li><a href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp {site.telefone.exibicao}</a></li>
+          <li><a href={telUrl} data-track="click_call">Ligar</a></li>
+          <li><a href={site.instagram.url} data-track="click_instagram" target="_blank" rel="noopener noreferrer">Instagram @{site.instagram.usuario}</a></li>
+        </ul>
+        <p class="suave" style="margin-top:10px">{site.horarioResumo}</p>
+      </div>
+    </div>
+    <div class="rodape__fim">
+      <span>© {new Date().getFullYear()} {site.nome}. Todos os direitos reservados.</span>
+      <span>Avaliação do Google: {site.google.nota} com {site.google.avaliacoes} avaliações, em {site.google.referencia}.</span>
+    </div>
+  </div>
+</footer>

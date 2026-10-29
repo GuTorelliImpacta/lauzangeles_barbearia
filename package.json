@@ -1,0 +1,36 @@
+{
+  "name": "lauzangeles-barbearia",
+  "version": "1.0.0",
+  "description": "Site institucional da Barbearia Lauzangeles (Tremembé, São Paulo/SP)",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "assets": "node scripts/prepare-assets.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuTorelliImpacta/lauzangeles_barbearia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GuTorelliImpacta/lauzangeles_barbearia/issues"
+  },
+  "homepage": "https://github.com/GuTorelliImpacta/lauzangeles_barbearia#readme",
+  "dependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.18.2",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  },
+  "private": true,
+  "type": "module"
+}

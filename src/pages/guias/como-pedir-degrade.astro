@@ -1,0 +1,25 @@
+---
+import Base from '../../layouts/Base.astro';
+import { whatsappUrl } from '../../data/site';
+import Fecha from '../../components/Fecha.astro';
+import FotoMotivo from '../../components/FotoMotivo.astro';
+import neon from '../../assets/neon-mustang.jpg';
+---
+<Base tipo="article" titulo="Como pedir um degradê ao barbeiro | Lauzangeles" descricao="Um guia curto para chegar na barbearia e pedir o degradê certo: referência, altura da transição e acabamento.">
+  <header class="pagina-topo wrap"><h1>Como pedir um degradê</h1><p class="lede suave">Quatro passos para sair da cadeira com o corte que você imaginou.</p></header>
+  <div class="wrap artigo" style="padding-bottom: var(--gap-secao)"><article class="texto">
+    <p>Degradê é a transição gradual do cabelo mais curto, nas laterais e na nuca, para o mais comprido, no topo. A diferença entre um corte e outro está em onde a transição começa e quão curto ela chega.</p>
+    <h2>1. Leve uma referência</h2>
+    <p>Uma foto vale mais do que qualquer descrição. Escolha uma imagem com a cabeça de frente, de lado e, se possível, de trás.</p>
+    <h2>2. Diga a altura da transição</h2>
+    <p>Fale se você quer o degradê baixo (começa perto da orelha), médio ou alto (sobe em direção à têmpora). Quanto mais alto, mais marcado o contraste.</p>
+    <h2>3. Combine o comprimento do topo</h2>
+    <p>Informe se quer manter o volume, deixar o topo mais curto ou preservar o comprimento para pentear. O barbeiro ajusta pelo formato do seu rosto e pelo tipo de cabelo.</p>
+    <h2>4. Fale do acabamento</h2>
+    <p>Contorno marcado na navalha ou natural, barba junto com o degradê ou separada. Se tiver dúvida, pergunte: o barbeiro está ali para orientar.</p>
+    <p style="margin-top:32px"><a class="btn" href={whatsappUrl('Olá! Quero agendar um corte degradê na Barbearia Lauzangeles.')} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer">Agendar meu corte</a></p>
+  </article>
+    <FotoMotivo src={neon} alt="Salão da Barbearia Lauzangeles com neon no teto e cadeira de couro" />
+  </div>
+  <Fecha />
+</Base>

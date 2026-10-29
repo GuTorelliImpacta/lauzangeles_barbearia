@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Fatos from '../components/Fatos.astro';
+import Servicos from '../components/Servicos.astro';
+import Espaco from '../components/Espaco.astro';
+import Sobre from '../components/Sobre.astro';
+import Horarios from '../components/Horarios.astro';
+import Faq from '../components/Faq.astro';
+import Fecha from '../components/Fecha.astro';
+import IconWhatsApp from '../components/IconWhatsApp.astro';
+import { site, whatsappUrl, telUrl } from '../data/site';
+---
+<Base titulo="Barbearia Lauzangeles | Tremembé, Zona Norte de SP">
+  <Hero />
+  <Fatos />
+  <section class="secao wrap" aria-labelledby="servicos-titulo">
+    <div class="cabeca" data-reveal>
+      <h2 id="servicos-titulo">Corte, barba e bigode</h2>
+      <p class="lede">Três serviços, com o seu estilo em primeiro lugar.</p>
+    </div>
+    <Servicos />
+    <div style="margin-top:40px" data-reveal><a class="btn btn--claro" href="/servicos">Ver serviços</a></div>
+  </section>
+  <section class="secao secao--cartao wrap" aria-labelledby="espaco-titulo"><Espaco /></section>
+  <section class="secao secao--creme on-light wrap" aria-labelledby="sobre-titulo"><Sobre botao /></section>
+  <section class="secao wrap" aria-labelledby="contato-titulo">
+    <div class="contato">
+      <div data-reveal>
+        <h2 id="contato-titulo">Como chegar</h2>
+        <address class="endereco" style="margin-top:24px">{site.endereco.linha}</address>
+        <p class="suave" style="margin-top:16px;max-width:36ch">Zona Norte de São Paulo, perto de Tucuruvi, Jaçanã e Santana.</p>
+        <div class="acoes">
+          <a class="btn" href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer"><IconWhatsApp />WhatsApp</a>
+          <a class="btn btn--claro" href={telUrl} data-track="click_call">Ligar {site.telefone.exibicao}</a>
+          <a class="btn btn--claro" href={site.mapsUrl} data-track="click_maps" target="_blank" rel="noopener noreferrer">Abrir rota</a>
+        </div>
+      </div>
+      <div data-reveal style="--i:1"><Horarios /></div>
+    </div>
+  </section>
+  <section class="secao secao--cartao wrap" aria-labelledby="faq-titulo">
+    <div class="faq-bloco"><div class="cabeca"><h2 id="faq-titulo" data-reveal>Perguntas frequentes</h2></div>
+    <Faq /></div>
+  </section>
+  <Fecha />
+</Base>

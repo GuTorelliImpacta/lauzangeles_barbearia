@@ -1,0 +1,15 @@
+---
+import { site, whatsappUrl } from '../data/site';
+import Chevron from './Chevron.astro';
+const { completo = false } = Astro.props;
+const T = completo ? 'h2' : 'h3';
+---
+<div class="servicos">
+  {site.servicos.map((s, i) => (
+    <article class="servico" data-reveal style={`--i:${i}`}>
+      <T class="servico__nome"><Chevron />{s.nome}</T>
+      <p class="lede" style="font-size:1.3rem">{completo ? s.detalhe : s.resumo}</p>
+      <a class="link" data-track="click_whatsapp" target="_blank" rel="noopener noreferrer" href={whatsappUrl(`Olá! Quero agendar ${s.nome.toLowerCase()} na Barbearia Lauzangeles.`)}>Agendar {s.nome.toLowerCase()}</a>
+    </article>
+  ))}
+</div>

@@ -1,0 +1,17 @@
+---
+import { Image } from 'astro:assets';
+import neon from '../assets/neon-mustang.jpg';
+import { whatsappUrl } from '../data/site';
+import IconWhatsApp from './IconWhatsApp.astro';
+---
+<section class="wrap" style="padding-bottom: var(--gap-secao)" aria-labelledby="fecha-titulo">
+  <div class="fecha" data-reveal>
+    <div class="fecha__cor" aria-hidden="true"></div>
+    <div class="fecha__tile">
+      <h2 id="fecha-titulo">Garanta seu horário.</h2>
+      <p>Chame no WhatsApp, diga o serviço e o dia. Você fala direto com a barbearia.</p>
+      <div><a class="btn btn--escuro" data-track="click_whatsapp" href={whatsappUrl()} target="_blank" rel="noopener noreferrer"><IconWhatsApp />Agendar no WhatsApp</a></div>
+    </div>
+    <div class="fecha__foto"><Image src={neon} alt="" widths={[400, 700]} sizes="(min-width: 900px) 300px, 100vw" style="object-position: 50% 75%" /></div>
+  </div>
+</section>
