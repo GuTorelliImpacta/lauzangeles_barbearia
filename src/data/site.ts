@@ -42,6 +42,11 @@ export const site = {
       resumo: 'Do clássico ao degradê, do jeito que você pediu.',
       detalhe:
         'Máquina e tesoura, com acabamento no contorno. Traga uma referência ou converse com o barbeiro na cadeira: o corte sai do seu jeito.',
+      descricao:
+        'Do clássico ao moderno, cada corte é pensado para combinar com seu estilo. Máquina, tesoura e acabamento preciso para entregar o resultado que você procura.',
+      diferenciais: ['Cortes com máquina e tesoura', 'Degradê e cortes clássicos', 'Acabamento de contorno', 'Atendimento personalizado'],
+      cta: 'Agendar corte',
+      mensagem: 'Olá! Acessei o site da Lauzangeles e gostaria de agendar um corte. Quais horários estão disponíveis?',
     },
     {
       slug: 'barba',
@@ -49,16 +54,29 @@ export const site = {
       resumo: 'Contorno e acabamento na navalha.',
       detalhe:
         'Barba desenhada e alinhada, com toalha e navalha. Do aparado discreto ao volume cheio.',
+      descricao:
+        'Mais definição, cuidado e personalidade. Um acabamento preciso, com toalha e navalha, respeitando o formato do seu rosto e o estilo que você deseja.',
+      diferenciais: ['Desenho e alinhamento', 'Acabamento com navalha', 'Cuidado com os detalhes', 'Diferentes estilos de barba'],
+      cta: 'Agendar barba',
+      mensagem: 'Olá! Gostaria de agendar um horário para fazer a barba. Poderiam me informar a disponibilidade?',
     },
     {
       slug: 'bigode',
       nome: 'Bigode',
       resumo: 'Aparado e alinhado com precisão.',
       detalhe: 'Bigode no comprimento e no formato que combinam com o seu rosto, com acabamento limpo.',
+      descricao:
+        'Pequenos detalhes fazem diferença. Ajuste de comprimento, formato e acabamento para valorizar sua identidade.',
+      diferenciais: ['Ajuste de comprimento', 'Definição do formato', 'Acabamento preciso'],
+      cta: 'Agendar bigode',
+      mensagem: 'Olá! Gostaria de agendar um horário para fazer o bigode. Poderiam me informar os horários disponíveis?',
     },
   ],
+  // Portfólio: cada item com `foto` aparece e abre no lightbox; sem `foto`, vira espaço reservado.
+  // Para publicar um trabalho real: salve a imagem em src/assets/galeria/ e aponte `foto` para ela em Galeria.astro.
+  galeriaCategorias: ['Degradê', 'Clássico', 'Tesoura', 'Barba', 'Detalhes'],
   // [CONFIRMAR] ligar apenas depois de o dono validar os dados.
-  flags: { mostrarPrecos: false, mostrarEquipe: false, mostrarDepoimentos: false, mostrarServicosExtras: false },
+  flags: { galeriaEspacosReservados: true, mostrarPrecos: false, mostrarEquipe: false, mostrarDepoimentos: false, mostrarServicosExtras: false },
   // [CONFIRMAR] formas de pagamento, estacionamento, atendimento infantil, encaixe sem hora marcada.
   faqConfirmar: [] as { pergunta: string; resposta: string }[],
 } as const;

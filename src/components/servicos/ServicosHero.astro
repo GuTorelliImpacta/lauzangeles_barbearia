@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import atendimento from '../../assets/atendimento.jpg';
+import { whatsappUrl } from '../../data/site';
+import IconWhatsApp from '../IconWhatsApp.astro';
+---
+<section class="sv-hero" aria-labelledby="sv-titulo">
+  <div class="wrap sv-hero__grid">
+    <div class="sv-hero__texto">
+      <h1 id="sv-titulo"><span class="l">Seu estilo começa</span> <span class="l">na cadeira.</span></h1>
+      <p class="sv-hero__sub">Do corte clássico ao degradê, da barba alinhada ao acabamento na navalha. Há mais de uma década cuidando do seu estilo no Tremembé.</p>
+      <div class="sv-hero__acoes">
+        <a class="btn" href={whatsappUrl()} data-track="click_cta_principal" target="_blank" rel="noopener noreferrer"><IconWhatsApp />Agendar meu horário</a>
+        <a class="btn btn--claro" href="#servicos" data-track="click_explorar_servicos">Explorar serviços</a>
+      </div>
+      <p class="sv-hero__local"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>Tremembé, Zona Norte de São Paulo</p>
+    </div>
+    <figure class="sv-hero__foto">
+      <Image src={atendimento} alt="Barbeiro cortando o cabelo de um cliente na cadeira de couro do salão da Lauzangeles, com mural de locomotiva ao fundo" widths={[480, 720, 1153]} sizes="(min-width: 900px) 46vw, 100vw" loading="eager" fetchpriority="high" />
+    </figure>
+  </div>
+</section>

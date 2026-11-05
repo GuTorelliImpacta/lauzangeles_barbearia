@@ -1,0 +1,50 @@
+---
+import { Image, getImage } from 'astro:assets';
+import neon from '../../assets/neon-mustang.jpg';
+import atendimento from '../../assets/atendimento.jpg';
+import { site } from '../../data/site';
+
+// Itens reais do portfólio. Acrescente aqui as fotos de trabalhos quando o dono enviar.
+const reais = [
+  { src: neon, classe: 'sv-g--a', pos: '50% 62%', alt: 'Salão da Lauzangeles com tubos de neon vermelho e branco no teto, cadeira de couro e carro vermelho ao fundo', legenda: 'O salão da Lauzangeles, no Tremembé' },
+  { src: atendimento, classe: 'sv-g--b', pos: '50% 78%', alt: 'Cadeira de couro e piso do salão durante um atendimento, com o barbeiro ao lado do cliente', legenda: 'Atendimento na cadeira' },
+];
+const itens = await Promise.all(
+  reais.map(async (r) => ({ ...r, grande: (await getImage({ src: r.src, width: 1400, format: 'webp', quality: 82 })).src })),
+);
+---
+<div class="sv-galeria" data-galeria>
+  <div class="sv-g__reais">
+    {itens.map((it, i) => (
+      <button type="button" class={`sv-g ${it.classe}`} data-reveal style={`--i:${i}`} data-grande={it.grande} data-legenda={it.legenda} data-alt={it.alt} data-track="abrir_galeria" aria-label={`Ampliar foto: ${it.legenda}`}>
+        <Image src={it.src} alt="" widths={[480, 800, 1000]} sizes="(min-width: 900px) 40vw, 100vw" style={`object-position:${it.pos}`} />
+        <span class="sv-g__leg">{it.legenda}</span>
+      </button>
+    ))}
+  </div>
+  {site.flags.galeriaEspacosReservados && (
+    <ul class="sv-g__reservas" aria-label="Espaços reservados para fotos de trabalhos">
+      {site.galeriaCategorias.map((c, i) => (
+        <li data-reveal style={`--i:${i}`}>
+          <svg viewBox="0 0 36 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="3"><polyline points="2,22 18,5 34,22" /></svg>
+          <strong>{c}</strong>
+          <span>Foto do trabalho em breve</span>
+        </li>
+      ))}
+    </ul>
+  )}
+  <dialog class="sv-lightbox" aria-label="Foto ampliada" data-lightbox>
+    <button type="button" class="sv-lb__fechar" data-lb-fechar aria-label="Fechar foto">Fechar</button>
+    <figure>
+      <img alt="" width="1400" height="1400" data-lb-img />
+      <figcaption data-lb-leg></figcaption>
+    </figure>
+    <div class="sv-lb__nav">
+      <button type="button" class="btn btn--claro" data-lb-ant aria-label="Foto anterior">Anterior</button>
+      <button type="button" class="btn btn--claro" data-lb-prox aria-label="Próxima foto">Próxima</button>
+    </div>
+  </dialog>
+</div>
+<script>
+  import '../../scripts/galeria';
+</script>

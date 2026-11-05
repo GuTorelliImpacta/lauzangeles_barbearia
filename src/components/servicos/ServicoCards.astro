@@ -1,0 +1,34 @@
+---
+import { Image } from 'astro:assets';
+import detalhe from '../../assets/detalhe-atendimento.jpg';
+import espelhos from '../../assets/espelhos-bandeira.jpg';
+import logo from '../../assets/logo.webp';
+import { site, whatsappUrl } from '../../data/site';
+import Chevron from '../Chevron.astro';
+
+const arte: Record<string, { alt: string }> = {
+  corte: { alt: 'Barbeiro com a máquina em punho durante um corte, na cadeira da Lauzangeles' },
+  barba: { alt: 'Estação de trabalho da barbearia com espelhos de lâmpadas e cliente na cadeira, coberto com capa e toalha' },
+  bigode: { alt: '' },
+};
+---
+<div class="sv-cards">
+  {site.servicos.map((s, i) => (
+    <article class="sv-card" data-reveal style={`--i:${i}`} aria-labelledby={`sv-${s.slug}`}>
+      <div class={`sv-card__arte sv-card__arte--${s.slug}`}>
+        {s.slug === 'corte' && <Image src={detalhe} alt={arte.corte.alt} widths={[400, 613]} sizes="(min-width: 900px) 30vw, 100vw" />}
+        {s.slug === 'barba' && <Image src={espelhos} alt={arte.barba.alt} widths={[400, 700]} sizes="(min-width: 900px) 30vw, 100vw" />}
+        {s.slug === 'bigode' && <Image class="sv-card__logo" src={logo} alt="" widths={[240, 480]} sizes="240px" />}
+      </div>
+      <div class="sv-card__corpo">
+        <h3 id={`sv-${s.slug}`}>{s.nome}</h3>
+        <p class="sv-card__desc">{s.descricao}</p>
+        <ul class="sv-card__lista">
+          {s.diferenciais.map((d) => <li><Chevron />{d}</li>)}
+        </ul>
+        <p class="sv-card__valor">Consulte os valores pelo WhatsApp.</p>
+        <a class="btn" href={whatsappUrl(s.mensagem)} data-track={`click_servico_${s.slug}`} target="_blank" rel="noopener noreferrer">{s.cta}</a>
+      </div>
+    </article>
+  ))}
+</div>

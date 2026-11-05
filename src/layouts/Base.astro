@@ -6,8 +6,8 @@ import { site, nav, whatsappUrl, telUrl } from '../data/site';
 import Rodape from '../components/Rodape.astro';
 import IconWhatsApp from '../components/IconWhatsApp.astro';
 
-interface Props { titulo: string; descricao?: string; noindex?: boolean; tipo?: 'website' | 'article'; }
-const { titulo, descricao = site.descricao, noindex = false, tipo = 'website' } = Astro.props;
+interface Props { jsonldExtra?: object[]; titulo: string; descricao?: string; noindex?: boolean; tipo?: 'website' | 'article'; }
+const { titulo, descricao = site.descricao, noindex = false, tipo = 'website', jsonldExtra = [] } = Astro.props;
 const atual = Astro.url.pathname.replace(/\/$/, '') || '/';
 const canonical = new URL(atual === '/' ? '/' : atual, Astro.site).href;
 const og = new URL('/og.jpg', Astro.site).href;
@@ -43,6 +43,7 @@ const jsonld = {
       sameAs: [site.instagram.url],
     },
     { '@type': 'WebSite', '@id': new URL('/#site', Astro.site).href, name: site.nome, url: new URL('/', Astro.site).href, inLanguage: 'pt-BR' },
+    ...jsonldExtra,
   ],
 };
 ---
@@ -81,7 +82,7 @@ const jsonld = {
         <nav class="nav" aria-label="Principal">
           {nav.map((n) => <a href={n.href} aria-current={atual === n.href ? 'page' : undefined}>{n.rotulo}</a>)}
         </nav>
-        <a class="btn" href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer">Agendar</a>
+        <a class="btn" href={whatsappUrl()} data-track="click_whatsapp" target="_blank" rel="noopener noreferrer">Agendar horário</a>
         <details class="menu">
           <summary aria-label="Abrir menu">Menu</summary>
           <nav class="menu__lista" aria-label="Menu">
