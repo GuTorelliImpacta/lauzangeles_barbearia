@@ -41,3 +41,7 @@ Serviços e preços, número do WhatsApp (assumido igual ao telefone), domínio,
 ## Dependências e segurança
 
 `npm audit` aponta avisos na cadeia de build do Astro 5 (esbuild, sharp, zod); a correção exige Astro 7, que pede Node ≥ 22.23.4. O site publicado é 100% estático (sem servidor nem execução dessas bibliotecas em produção). Ao migrar para Astro 7, usar Node atual na Vercel e rodar `npm run build` antes de publicar.
+
+## Página de serviços e galeria
+
+Componentes em `src/components/servicos/`. A galeria usa só fotos reais; as categorias sem foto aparecem como espaços reservados ("Foto do trabalho em breve"). Para publicar um trabalho: salve a imagem em `src/assets/galeria/`, importe em `Galeria.astro` e acrescente ao array `reais` (legenda e texto alternativo descritivos). Para esconder os espaços reservados, use `flags.galeriaEspacosReservados = false` em `src/data/site.ts`. Eventos de mensuração disponíveis: `click_cta_principal`, `click_servico_corte|barba|bigode`, `click_ver_avaliacoes`, `abrir_galeria`, `view_galeria`, além dos de contato.

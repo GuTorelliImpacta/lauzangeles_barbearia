@@ -1,0 +1,13 @@
+---
+import { site } from '../../data/site';
+const estrela = 'M12 2l2.9 6.3 6.9.7-5.2 4.6 1.5 6.8L12 17l-6.1 3.4 1.5-6.8L2.2 9l6.9-.7L12 2Z';
+---
+<div class="sv-prova">
+  <h2 id="sv-prova-titulo" data-reveal>Quem conhece, recomenda.</h2>
+  <div class="sv-prova__painel" data-reveal style="--i:1">
+    <p class="sv-prova__nota"><strong>{site.google.nota}</strong><span class="sv-prova__estrelas" role="img" aria-label="Cinco de cinco estrelas">{[0, 1, 2, 3, 4].map(() => <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d={estrela} /></svg>)}</span></p>
+    <p class="sv-prova__qtd"><strong>{site.google.avaliacoes} avaliações</strong> no Google</p>
+    <p class="sv-prova__data">Dados da ficha do Google, consultados em {site.google.referencia}.</p>
+    <a class="btn btn--claro" href={site.mapsUrl} data-track="click_ver_avaliacoes" target="_blank" rel="noopener noreferrer">Ver avaliações</a>
+  </div>
+</div>

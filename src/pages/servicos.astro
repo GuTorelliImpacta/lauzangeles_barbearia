@@ -1,21 +1,54 @@
 ---
 import Base from '../layouts/Base.astro';
-import Servicos from '../components/Servicos.astro';
+import ServicosHero from '../components/servicos/ServicosHero.astro';
+import PoleStripe from '../components/servicos/PoleStripe.astro';
+import ServicoCards from '../components/servicos/ServicoCards.astro';
+import Galeria from '../components/servicos/Galeria.astro';
+import Diferenciais from '../components/servicos/Diferenciais.astro';
+import ProvaSocial from '../components/servicos/ProvaSocial.astro';
 import Fecha from '../components/Fecha.astro';
-import FotoMotivo from '../components/FotoMotivo.astro';
-import detalhe from '../assets/detalhe-atendimento.jpg';
 import { site } from '../data/site';
+
+const base = import.meta.env.SITE ?? 'https://lauzangeles-barbearia.vercel.app';
+const extra = [
+  ...site.servicos.map((s) => ({
+    '@type': 'Service',
+    '@id': `${base}/servicos#${s.slug}`,
+    name: `${s.nome} masculino na Barbearia Lauzangeles`,
+    serviceType: s.nome,
+    description: s.descricao,
+    areaServed: 'Tremembé, Zona Norte de São Paulo',
+    provider: { '@id': `${base}/#barbearia` },
+  })),
+  {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: `${base}/` },
+      { '@type': 'ListItem', position: 2, name: 'Serviços', item: `${base}/servicos` },
+    ],
+  },
+];
 ---
-<Base titulo="Corte, barba e bigode no Tremembé | Barbearia Lauzangeles" descricao="Corte, barba e bigode na Barbearia Lauzangeles, no Tremembé, Zona Norte de São Paulo. Agende pelo WhatsApp.">
-  <header class="pagina-topo wrap pagina-duas">
-    <div><h1>Corte, barba e bigode</h1>
-    <p class="lede suave">Serviços feitos na cadeira da Lauzangeles, no Tremembé, com máquina, tesoura e navalha.</p></div>
-    <FotoMotivo src={detalhe} alt="Barbeiro com máquina em punho atendendo um cliente na cadeira" />
-  </header>
-  <section class="wrap" style="padding-bottom: var(--gap-secao)" aria-label="Lista de serviços">
-    <Servicos completo />
-    {site.flags.mostrarPrecos && <p class="suave" style="margin-top:32px">Valores sob consulta.</p>}
-    <p class="suave" style="margin-top:32px;max-width:52ch">Para saber valores e outros serviços, chame a barbearia no WhatsApp. Também ajuda mandar uma foto de referência do corte que você quer.</p>
+<Base
+  titulo="Corte, barba e bigode no Tremembé | Lauzangeles"
+  descricao="Corte masculino, degradê, barba e bigode na Barbearia Lauzangeles, no Tremembé, Zona Norte de São Paulo. Agende pelo WhatsApp."
+  jsonldExtra={extra}
+>
+  <ServicosHero />
+  <PoleStripe id="pole-a" />
+  <section id="servicos" class="secao wrap" aria-labelledby="sv-servicos-titulo">
+    <div class="cabeca"><h2 id="sv-servicos-titulo" data-reveal>Escolha seu próximo visual.</h2>
+      <p class="lede suave" data-reveal style="--i:1">Corte, barba e bigode na cadeira da Lauzangeles, com atendimento pelo WhatsApp.</p></div>
+    <ServicoCards />
   </section>
-  <Fecha />
+  <section class="secao secao--cartao wrap" aria-labelledby="sv-galeria-titulo">
+    <div class="cabeca"><h2 id="sv-galeria-titulo" data-reveal>Na prática, o resultado fala.</h2>
+      <p class="lede suave" data-reveal style="--i:1">O salão e o trabalho na cadeira. Novas fotos de cortes e barbas entram aqui conforme forem registradas.</p></div>
+    <Galeria />
+  </section>
+  <section class="secao wrap" aria-labelledby="sv-dif-titulo"><Diferenciais /></section>
+  <PoleStripe id="pole-b" />
+  <section class="secao secao--creme on-light wrap" aria-labelledby="sv-prova-titulo"><ProvaSocial /></section>
+  <div style="height: var(--gap-secao)"></div>
+  <Fecha titulo="Seu próximo corte está a um clique." texto="Escolha seu serviço, fale com nossa equipe e encontre o melhor horário para você." botao="Agendar pelo WhatsApp" />
 </Base>

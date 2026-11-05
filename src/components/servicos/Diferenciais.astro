@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import espelhos from '../../assets/espelhos-bandeira.jpg';
+import { site } from '../../data/site';
+import Chevron from '../Chevron.astro';
+const itens = [
+  { t: `Desde ${site.desde} no Tremembé`, d: 'Mais de uma década atendendo a Zona Norte de São Paulo.' },
+  { t: 'Aberto de segunda a domingo', d: site.horarioResumo },
+  { t: 'Máquina, tesoura e navalha', d: 'Cada ferramenta no ponto certo do corte, da barba e do bigode.' },
+  { t: 'Ambiente com identidade própria', d: 'Madeira, couro, neon e um carro vermelho no meio do salão.' },
+  { t: 'Atendimento personalizado', d: 'O resultado nasce da conversa na cadeira, com o seu estilo em primeiro lugar.' },
+];
+---
+<div class="sv-dif">
+  <figure class="sv-dif__foto" data-reveal>
+    <Image src={espelhos} alt="Estação de trabalho com espelhos de lâmpadas, parede de madeira e a bandeira do estado de São Paulo" widths={[480, 835]} sizes="(min-width: 900px) 40vw, 100vw" style="object-position: 50% 30%" />
+  </figure>
+  <div>
+    <h2 id="sv-dif-titulo" data-reveal>Mais que um corte. Uma experiência.</h2>
+    <ul class="sv-dif__lista">
+      {itens.map((it, i) => (
+        <li data-reveal style={`--i:${i}`}><Chevron /><div><strong>{it.t}</strong><span>{it.d}</span></div></li>
+      ))}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+---
+// Divisor inspirado no poste de barbeiro: faixa diagonal vermelho, branco e azul (formas cheias, sem linhas finas).
+const { id = 'pole-a' } = Astro.props;
+---
+<svg class="pole" aria-hidden="true" focusable="false" preserveAspectRatio="none">
+  <defs>
+    <pattern id={id} width="48" height="16" patternUnits="userSpaceOnUse" patternTransform="skewX(-35)">
+      <rect width="16" height="16" fill="#ca322f" />
+      <rect x="16" width="16" height="16" fill="#fafbf6" />
+      <rect x="32" width="16" height="16" fill="#204070" />
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill={`url(#${id})`} />
+</svg>
